@@ -1,3 +1,4 @@
+import { POINT_EMPTY } from '../const.js';
 import { createElement } from '../render.js';
 
 function createPointEditTemplate() {
@@ -166,8 +167,18 @@ function createPointEditTemplate() {
 }
 
 export default class PointEditView {
+  constructor({point = POINT_EMPTY, pointDestinations, pointOffers}) {
+    this.point = point;
+    this.pointDestinations = pointDestinations;
+    this.pointOffers = pointOffers;
+  }
+
   getTemplate() {
-    return createPointEditTemplate();
+    return createPointEditTemplate({
+      point: this.point,
+      pointDestinations: this.pointDestinations,
+      pointOffers: this.pointOffers
+    });
   }
 
   getElement() {
