@@ -32,8 +32,19 @@ function createSortTemplate() {
 }
 
 export default class SortView {
+  // constructor({point, pointDestinations, pointOffers}) {
+  //   this.point = point;
+  //   this.pointDestinations = pointDestinations;
+  //   this.pointOffers = pointOffers;
+  // }
+
   getTemplate() {
     return createSortTemplate();
+    // return createSortTemplate({
+    //   point: this.point,
+    //   pointDestinations: this.pointDestinations,
+    //   pointOffers: this.pointOffers
+    // });
   }
 
   getElement() {
