@@ -1,5 +1,5 @@
 import { POINT_EMPTY } from '../const.js';
-import { createElement } from '../render.js';
+import AbstractView from '../framework/view/abstract-view.js';
 
 function createPointEditTemplate() {
   return (
@@ -94,6 +94,9 @@ function createPointEditTemplate() {
 
       <button class="event__save-btn  btn  btn--blue" type="submit">Save</button>
       <button class="event__reset-btn" type="reset">Cancel</button>
+      <button class="event__rollup-btn" type="button">
+        <span class="visually-hidden">Open event</span>
+      </button>
     </header>
     <section class="event__details">
       <section class="event__section  event__section--offers">
@@ -166,30 +169,23 @@ function createPointEditTemplate() {
   );
 }
 
-export default class PointEditView {
+export default class PointEditView extends AbstractView {
+  #point = POINT_EMPTY;
+  #pointDestinations = null;
+  #pointOffers = null;
+
   constructor({point = POINT_EMPTY, pointDestinations, pointOffers}) {
-    this.point = point;
-    this.pointDestinations = pointDestinations;
-    this.pointOffers = pointOffers;
+    super();
+    this.#point = point;
+    this.#pointDestinations = pointDestinations;
+    this.#pointOffers = pointOffers;
   }
 
-  getTemplate() {
+  get template() {
     return createPointEditTemplate({
-      point: this.point,
-      pointDestinations: this.pointDestinations,
-      pointOffers: this.pointOffers
+      point: this.#point,
+      pointDestinations: this.#pointDestinations,
+      pointOffers: this.#pointOffers
     });
-  }
-
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate());
-    }
-
-    return this.element;
-  }
-
-  removeElement() {
-    this.element = null;
   }
 }

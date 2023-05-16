@@ -1,4 +1,4 @@
-import { createElement } from '../render.js';
+import AbstractView from '../framework/view/abstract-view.js';
 
 function createSortTemplate() {
   return (
@@ -31,31 +31,8 @@ function createSortTemplate() {
   );
 }
 
-export default class SortView {
-  // constructor({point, pointDestinations, pointOffers}) {
-  //   this.point = point;
-  //   this.pointDestinations = pointDestinations;
-  //   this.pointOffers = pointOffers;
-  // }
-
-  getTemplate() {
+export default class SortView extends AbstractView {
+  get template() {
     return createSortTemplate();
-    // return createSortTemplate({
-    //   point: this.point,
-    //   pointDestinations: this.pointDestinations,
-    //   pointOffers: this.pointOffers
-    // });
-  }
-
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate());
-    }
-
-    return this.element;
-  }
-
-  removeElement() {
-    this.element = null;
   }
 }
