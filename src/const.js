@@ -26,11 +26,19 @@ const POINT_EMPTY = {
   type: DEFAULT_TYPE
 };
 
+const FilterType = {
+  EVERYTHING: 'everything',
+  FUTURE: 'future',
+  PRESENT: 'present',
+  PAST: 'past',
+};
+
 export {
   OFFER_COUNT,
   DESTINATION_COUNT,
   POINT_COUNT,
   TYPES,
   DEFAULT_TYPE,
-  POINT_EMPTY
+  POINT_EMPTY,
+  FilterType
 };
