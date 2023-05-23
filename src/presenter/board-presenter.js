@@ -25,7 +25,6 @@ export default class BoardPresenter {
     this.#pointsModel = pointsModel;
 
     this.#points = sort[SortType.DAY]([...this.#pointsModel.get()]);
-    // this.#points = [...this.#pointsModel.get()];
   }
 
   init() {
@@ -47,17 +46,6 @@ export default class BoardPresenter {
   };
 
   #sortPoints = (sortType) => {
-    // switch(sortType) {
-    //   case SortType.TIME:
-    //     this.#points.sort(getPointsDurationDifference);
-    //     break;
-    //   case SortType.PRICE:
-    //     this.#points.sort(getPointsPriceDifference);
-    //     break;
-    //   default:
-    //     this.#points = [...this.#pointsModel.get()];
-    // }
-
     this.#currentSortType = sortType;
     this.#points = sort[this.#currentSortType](this.#points);
   };
@@ -111,10 +99,6 @@ export default class BoardPresenter {
   };
 
   #sortTypeChangeHandler = (sortType) => {
-    // if(this.#currentSortType === sortType) {
-    //   return;
-    // }
-
     this.#sortPoints(sortType);
     this.#clearPoints();
     this.#renderSort(this.#container);
