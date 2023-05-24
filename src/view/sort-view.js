@@ -1,13 +1,5 @@
-import { SortType } from '../const.js';
+import { EnabledSortType, SortType } from '../const.js';
 import AbstractView from '../framework/view/abstract-view.js';
-
-const enabledSortType = {
-  [SortType.DAY]: true,
-  [SortType.EVENT]: false,
-  [SortType.TIME]: true,
-  [SortType.PRICE]: true,
-  [SortType.OFFERS]: false
-};
 
 function getSortItem(sortItem) {
   return `
@@ -48,7 +40,7 @@ export default class SortView extends AbstractView {
       .map((type) => ({
         type,
         isChecked: (type === sortType),
-        isDisabled: !enabledSortType[type]
+        isDisabled: !EnabledSortType[type]
       }));
 
     this.#onSortTypeChange = onSortTypeChange;

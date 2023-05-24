@@ -46,6 +46,14 @@ const SortType = {
   OFFERS: 'offers'
 };
 
+const EnabledSortType = {
+  [SortType.DAY]: true,
+  [SortType.EVENT]: false,
+  [SortType.TIME]: true,
+  [SortType.PRICE]: true,
+  [SortType.OFFERS]: false
+};
+
 export {
   OFFER_COUNT,
   DESTINATION_COUNT,
@@ -55,5 +63,6 @@ export {
   POINT_EMPTY,
   FilterType,
   Mode,
-  SortType
+  SortType,
+  EnabledSortType
 };
